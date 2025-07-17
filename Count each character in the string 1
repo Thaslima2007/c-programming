@@ -1,0 +1,28 @@
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+int main()
+{
+    char str[100];
+    int i, j, count;
+    int printed[256] = {0};  
+    scanf("%s", str);
+    for (i = 0; str[i] != '\0'; i++) 
+    {
+        if (printed[(unsigned char)str[i]] == 0)
+        {
+            count = 1;
+            for (j = i + 1; str[j] != '\0'; j++)
+            {
+                if (str[i] == str[j])
+                {
+                    count++;
+                }
+            }
+            printed[(unsigned char)str[i]] = 1;
+            printf("%c   %d\n", str[i], count);
+        }
+    }
+    return 0;
+}
